@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mendix
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mendix-app
+    spec:
+      containers:
+      - name: mendix-app
+        image: casalinas83/mendix:v1
+        ports:
+        - name: http-port
+          containerPort: 80
+        env:
+          - name: ADMIN_PASSWORD
+            value: Password1!
+          - name: DATABASE_ENDPOINT
+            value: postgres://mendix:mendix@localhost:5432/mendix
+      - name: postgres
+        image: postgres
+        ports:
+        - name: db-port
+          containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            value: mendix
+          - name: POSTGRES_PASSWORD
+            value: mendix
