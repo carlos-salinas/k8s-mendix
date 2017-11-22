@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mendix-db
+  labels:
+    app: mendix-db
+spec:
+  containers:
+  - name: postgres
+    image: postgres
+    ports:
+        - name: db-port
+          containerPort: 5432
+    env:
+      - name: POSTGRES_USER
+        value: mendix
+      - name: POSTGRES_PASSWORD
+        value: mendix
