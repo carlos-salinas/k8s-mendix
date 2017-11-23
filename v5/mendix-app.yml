@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mendix
 spec:
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
