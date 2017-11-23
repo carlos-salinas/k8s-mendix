@@ -30,3 +30,5 @@ spec:
             value: mendix
           - name: POSTGRES_PASSWORD
             value: mendix
+          - name: POSTGRES_DB
+            value: nidhi
